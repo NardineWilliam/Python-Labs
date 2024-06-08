@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ book.title }}</title>
+  </head>
+  <body>
+    <h1>{{ book.title }}</h1>
+    <a href="{% url 'book_update' forloop.counter0 %}">Edit</a>
+    <form
+      action="{% url 'book_delete' forloop.counter0 %}"
+      method="post"
+      style="display: inline">
+      {% csrf_token %}
+      <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'book_list' %}">Back to list</a>
+  </body>
+</html>
